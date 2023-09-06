@@ -13,6 +13,7 @@ const resetButton = document.querySelector("#reset");
 const gamePoint = document.querySelector("#gamePoint");
 
 let winScore = 3;
+let actualWinScore = 3;
 let gameOver = false;
 
 function updateScores(player, opponent) {
@@ -39,6 +40,7 @@ p2.button.addEventListener("click", function () {
 });
 
 gamePoint.addEventListener("change", function () {
+  actualWinScore = parseInt(this.value);
   winScore = parseInt(this.value);
   reset();
 });
@@ -52,5 +54,6 @@ function reset() {
     p.display.textContent = 0;
     p.display.classList.remove("has-text-success", "has-text-danger");
     p.button.disabled = false;
+    winScore = actualWinScore;
   }
 }
